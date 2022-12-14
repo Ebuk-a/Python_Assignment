@@ -3,11 +3,11 @@ import json
 import numpy as np
 
 def abbreviator(path):
-    ''' 
-    ###Reading the Test Name file
-    path= input('Please enter test data file path')
-    '''
-   
+    '''The abbreviator() takes in a 
+    input-> string: location of the txt file containing names to be abbreviated
+    output-> txt file: file containing the each name and the abbreviation in succeeding line'''
+    
+    #Reading each line of the file
     with open(str(path)) as file:
         names = file.readlines()
     #/Users/ebuka/Downloads/trees.txt
@@ -211,11 +211,3 @@ def abbreviator(path):
 if __name__ == '__main__':
     path_name= input('Please enter data filename and path: ')
     names= abbreviator(path_name)
-
-
-'''
-path= input('Please enter data file path')
-with open(str(path)) as file:
-    names = file.readlines()
-#/Users/ebuka/Downloads/trees.txt
-'''

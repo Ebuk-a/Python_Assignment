@@ -74,7 +74,7 @@ Alder Buckthorn
 ARB
 Purging Buckthorn
 PGB
-Elder
+Elder9
 EDR
 Common Dogwood
 CND
@@ -102,3 +102,19 @@ Common Privet
 CNP
 Plot's Elm
 PSE
+Wayfaring tree home below
+WTH
+As
+
+He
+
+^Ci-yu
+CYU
+C++ Code
+CCD
+Hum
+HUM
+I am
+IAM
+I ME
+IME
