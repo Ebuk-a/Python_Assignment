@@ -37,7 +37,6 @@ def abbreviator(path):
             name = re.sub('\s+',' ', name)                                      #replace multiple spaces with one
             name = name.lstrip().rstrip()                                       #remove leading and trailing spaces
             cleaned_names.append(name)
-    #print(cleaned_names)
 
 
     def word_least_letter_checker(theword):
@@ -46,7 +45,7 @@ def abbreviator(path):
         Outputs = least_letter (letter having the least score), least_letter_score (score of the least letter), index_count(index of the least letter in the word)
         '''
         least_letter= None                                                    #defaults least letter to the second letter in the word
-        least_letter_score= 1000                                              #corresponding score of the word
+        least_letter_score= 1000                                              # high default (will be overwritten) value, corresponding score of the word
         index_count= 0                                                        #to track index of the letter (in the word) being checked
 
         for letter in theword[1:]:                                      
@@ -87,8 +86,8 @@ def abbreviator(path):
         '''
         Input-> string: name(words);
         output -> dicts: least_letter_tracker, least_score_tracker
-            least_letter_tracker: dictionary containing the each word and the least letter, e.g for WONDER MAN {'WONDER': 'R', 'MAN': 'N'}, 
-            least_score_tracker: dictionary containing the each word and the least letter score, e.g for WONDER MAN {'WONDER': 5, 'MAN': 5}
+            least_letter_tracker: dictionary containing the each word and the least letter (ignoring first letter), e.g for WONDER MAN {'WONDER': 'R', 'MAN': 'N'}, 
+            least_score_tracker: dictionary containing the each word and the least letter score (ignoring first letter), e.g for WONDER MAN {'WONDER': 5, 'MAN': 5}
             '''
         index_count= 0
         least_letter_tracker= {}
@@ -183,18 +182,18 @@ def abbreviator(path):
 
 
 
-    '''Putting it all together: Abbreviating each word in the cleaned data using the name abrbreviator function'''
-    abbreviations_dic= {}
+    '''Putting it all together: Abbreviating each word in the cleaned data using the name abbreviator function to calculate score and return the least scored'''
+    abbreviations_dic= {}                                               
     abbreviatons_only= []
     for name in cleaned_names:
         abb, score= nameAbbreviator(name)
-        abbreviations_dic[name]={abb: score}
+        abbreviations_dic[name]={abb: score}                            # Dictionary of form {name: {abbreviation: score}}
         abbreviatons_only.append(abb)
 
     name_and_abb_dic = dict(zip(names, abbreviatons_only))               #gets each name from the original file and map it to the computed abbreviation
 
     names_and_abbs = []
-    for name_only, abbreviation_only in name_and_abb_dic.items():        # convert the dictionary of name and abb to list for easy writing to txt file
+    for name_only, abbreviation_only in name_and_abb_dic.items():        # convert the dictionary of name and abb to list for easy writing to a .txt file
         names_and_abbs.append(name_only.split('\n')[0])                  # get the original name, remove newline (\n) and add it to the list 
         names_and_abbs.append(abbreviation_only)                         # add the computed abbreviation to the list
 
