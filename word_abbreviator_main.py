@@ -7,10 +7,9 @@ def abbreviator(path):
     input-> string: location of the txt file containing names to be abbreviated
     output-> txt file: file containing the each name and the abbreviation in succeeding line'''
     
-    #Reading each line of the file
+    #Reading each line of the file /Users/ebuka/Downloads/trees.txt
     with open(str(path)) as file:
         names = file.readlines()
-    #/Users/ebuka/Downloads/trees.txt
 
 
     '''Reading, wrangling, and sorting the letter scores
@@ -94,7 +93,6 @@ def abbreviator(path):
         least_score_tracker= {}
         names_split = name.split()
         for theword in names_split:
-            #print(theword)
             least_letter, least_letter_score, index_count= word_least_letter_checker(theword)
             least_score_tracker[theword]  = least_letter_score
             least_letter_tracker[theword]  = least_letter
