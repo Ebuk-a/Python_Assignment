@@ -59,9 +59,9 @@ def word_least_letter_checker(theword):
                 for letter in theword[1:-1]:
                     if sorted_postn_values[letter] < 5:
                         least_letter= letter                   
-                        if index_count<=3:                                                         # if the index of th letter in the word is below 3, then add index to value
+                        if index_count<=2:                                                         # if the index of th letter in the word is below 3, then add index to value
                             least_letter_score= sorted_postn_values[letter] + index_count           
-                        elif index_count<=3:
+                        elif index_count>=3:
                             least_letter_score= sorted_postn_values[letter] + 3            
 
             elif sorted_postn_values[least_letter] > 5 and theword[-1]!= 'E':                      #if the least letter is greater than 5 and the last letter is NOT E (if E it defaults to 20), make the last letter the least(defaults to 5) 
@@ -185,3 +185,15 @@ for name in cleaned_names:
    abbreviations_dic[name]={abb: score}
    #print(abb, score)
 print(abbreviations_dic)
+
+'''
+#Create output file name
+input_filename= path.split('/')[-1].split('.')[0].lower()
+surname= 'Akwiwu-Uzoma'.lower()
+output_name= surname +'_'+ input_filename + '_abbrevs.txt'
+
+#Writing the result to a file
+with open(output_name, 'w') as file:
+    file.write('\n'.join(abbreviations_dic)) 
+
+'''
