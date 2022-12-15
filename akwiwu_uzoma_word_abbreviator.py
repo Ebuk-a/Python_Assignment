@@ -1,7 +1,5 @@
 import re
-import json
-import numpy as np
-from utils.helpers import nameAbbreviator
+from utils.akwiwu_uzoma_helpers import nameAbbreviator
 
 def abbreviator(path):
     '''The abbreviator() takes in a 
