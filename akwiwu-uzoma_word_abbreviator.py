@@ -8,7 +8,7 @@ def abbreviator(path):
     input-> string: location of the txt file containing names to be abbreviated
     output-> txt file: file containing the each name and the abbreviation in succeeding line'''
     
-    #Reading each line of the file /Users/ebuka/Downloads/trees.txt
+    #Reading each line of the file resources/trees.txt
     with open(str(path)) as file:
         names = file.readlines()
 
@@ -42,12 +42,12 @@ def abbreviator(path):
 
 
     #Create output file name
-    input_filename= path_name.split('/')[-1].split('.')[0].lower()
+    input_filename= path_name.split('/')[-1].split('.')[0].lower()      #if in a path(like home/downloads/trees.txt), split by / [home, downloads, trees.txt] and get last item (trees.txt), then split by '.' and get the first item (trees))
     surname= 'akwiwu-uzoma'
     output_name= surname +'_'+ input_filename + '_abbrevs.txt'
 
     #Write each item of the list as a new line to the output file
-    with open(output_name, 'w') as file:
+    with open('output/'+output_name, 'w') as file:
         file.write('\n'.join(names_and_abbs))                           
 
 if __name__ == '__main__':
